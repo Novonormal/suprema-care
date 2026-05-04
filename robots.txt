@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://supremacarebrasil.com.br/sitemap.xml
+
