@@ -95,6 +95,11 @@ select {
   box-shadow: 0 14px 38px rgba(8, 49, 65, 0.12);
 }
 
+.site-header.is-hidden {
+  transform: translateY(calc(-100% - 12px));
+  box-shadow: none;
+}
+
 .topbar {
   display: none;
 }

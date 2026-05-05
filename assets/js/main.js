@@ -5,10 +5,17 @@
   var form = document.querySelector("[data-whatsapp-form]");
   var year = document.querySelector("[data-year]");
   var decisionCards = document.querySelectorAll("[data-decision-card]");
+  var lastScrollY = window.scrollY || 0;
 
   function setHeaderState() {
     if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 18);
+    var currentScroll = window.scrollY || 0;
+    var scrollingDown = currentScroll > lastScrollY;
+    var navOpen = nav && nav.classList.contains("is-open");
+
+    header.classList.toggle("is-scrolled", currentScroll > 18);
+    header.classList.toggle("is-hidden", scrollingDown && currentScroll > 150 && !navOpen);
+    lastScrollY = currentScroll;
   }
 
   setHeaderState();
@@ -18,6 +25,7 @@
     navToggle.addEventListener("click", function () {
       var open = nav.classList.toggle("is-open");
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (header) header.classList.remove("is-hidden");
     });
   }
 
