@@ -281,8 +281,8 @@ select {
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 820px;
-  padding: 132px 0 235px;
+  min-height: 650px;
+  padding: 96px 0 150px;
   color: var(--white);
   background:
     linear-gradient(180deg, rgba(8, 49, 65, 0.96), rgba(17, 63, 66, 0.98)),
@@ -436,14 +436,14 @@ p {
 
 .hero-visual {
   position: relative;
-  min-height: 548px;
+  min-height: 430px;
 }
 
 .hero-nurse {
   position: absolute;
   right: 0;
-  bottom: -235px;
-  width: min(530px, 44vw);
+  bottom: -152px;
+  width: min(480px, 40vw);
   max-height: 760px;
   object-fit: contain;
   filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.18));
@@ -1347,6 +1347,10 @@ p {
 }
 
 .floating-whatsapp::before {
+  display: none;
+}
+
+.contact-page .floating-whatsapp {
   display: none;
 }
 

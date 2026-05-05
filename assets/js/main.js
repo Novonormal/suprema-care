@@ -44,18 +44,47 @@
   }
 
   if (form) {
+    var serviceSelect = form.querySelector("[name='servico']");
+    var submitLabel = form.querySelector("[data-submit-label]");
+
+    function isWorkRequest() {
+      return serviceSelect && String(serviceSelect.value || "").toLowerCase().indexOf("trabalhe") !== -1;
+    }
+
+    function updateSubmitLabel() {
+      if (!submitLabel) return;
+      submitLabel.textContent = isWorkRequest() ? "Enviar por e-mail" : "Enviar questionario";
+    }
+
+    if (serviceSelect) {
+      serviceSelect.addEventListener("change", updateSubmitLabel);
+      updateSubmitLabel();
+    }
+
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var data = new FormData(form);
+      var service = data.get("servico") || "";
       var parts = [
-        "Olá, equipe Suprema Care Brasil. Gostaria de um orçamento.",
+        isWorkRequest()
+          ? "Trabalhe conosco - Suprema Care Brasil"
+          : "Ola, equipe Suprema Care Brasil. Gostaria de um orcamento.",
         "Nome: " + (data.get("nome") || ""),
         "Telefone: " + (data.get("telefone") || ""),
-        "Serviço: " + (data.get("servico") || ""),
+        "Servico: " + service,
         "Mensagem: " + (data.get("mensagem") || "")
       ];
-      var url = "https://wa.me/5511981280639?text=" + encodeURIComponent(parts.join("\n"));
-      window.location.href = url;
+
+      if (isWorkRequest()) {
+        window.location.href =
+          "mailto:contato@supremacarebrasil.com.br?subject=" +
+          encodeURIComponent("Trabalhe conosco - Suprema Care Brasil") +
+          "&body=" +
+          encodeURIComponent(parts.join("\n"));
+        return;
+      }
+
+      window.location.href = "https://wa.me/5511981280639?text=" + encodeURIComponent(parts.join("\n"));
     });
   }
 
