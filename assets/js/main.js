@@ -5,27 +5,55 @@
   var form = document.querySelector("[data-whatsapp-form]");
   var year = document.querySelector("[data-year]");
   var decisionCards = document.querySelectorAll("[data-decision-card]");
-  var lastScrollY = window.scrollY || 0;
 
   function setHeaderState() {
     if (!header) return;
     var currentScroll = window.scrollY || 0;
-    var scrollingDown = currentScroll > lastScrollY;
-    var navOpen = nav && nav.classList.contains("is-open");
 
     header.classList.toggle("is-scrolled", currentScroll > 18);
-    header.classList.toggle("is-hidden", scrollingDown && currentScroll > 150 && !navOpen);
-    lastScrollY = currentScroll;
   }
 
   setHeaderState();
   window.addEventListener("scroll", setHeaderState, { passive: true });
 
+  function closeMenu() {
+    if (!navToggle || !nav) return;
+    nav.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    if (header) header.classList.remove("is-menu-open");
+  }
+
+  function openMenu() {
+    if (!navToggle || !nav) return;
+    nav.classList.add("is-open");
+    navToggle.setAttribute("aria-expanded", "true");
+    if (header) header.classList.add("is-menu-open");
+  }
+
   if (navToggle && nav) {
     navToggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
-      if (header) header.classList.remove("is-hidden");
+      if (nav.classList.contains("is-open")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.querySelectorAll(".nav-cta a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!header || !nav.classList.contains("is-open")) return;
+      if (!header.contains(event.target)) closeMenu();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeMenu();
     });
   }
 
