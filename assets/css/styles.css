@@ -88,7 +88,12 @@ select {
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 1px 0 rgba(17, 63, 66, 0.06);
   backdrop-filter: blur(12px);
-  transition: box-shadow 220ms ease, transform 220ms ease;
+  transform-origin: top center;
+  transition:
+    opacity 260ms ease,
+    filter 260ms ease,
+    box-shadow 260ms ease,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .site-header.is-scrolled {
@@ -96,8 +101,11 @@ select {
 }
 
 .site-header.is-hidden {
-  transform: translateY(calc(-100% - 12px));
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(calc(-100% - 18px)) scale(0.985);
   box-shadow: none;
+  pointer-events: none;
 }
 
 .topbar {
