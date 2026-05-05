@@ -2,26 +2,71 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/sobre", "destination": "/sobre.html" },
-    { "source": "/servicos", "destination": "/servicos.html" },
-    { "source": "/blog", "destination": "/blog.html" },
-    { "source": "/contato", "destination": "/contato.html" },
-    { "source": "/cuidado-domiciliar-morumbi", "destination": "/cuidado-domiciliar-morumbi.html" },
-    { "source": "/home-care-sao-paulo", "destination": "/home-care-sao-paulo.html" },
-    { "source": "/cuidador-idosos-morumbi", "destination": "/cuidador-idosos-morumbi.html" },
-    { "source": "/como-escolher-home-care", "destination": "/como-escolher-home-care.html" },
-    { "source": "/quanto-custa-cuidador-de-idosos", "destination": "/quanto-custa-cuidador-de-idosos.html" },
-    { "source": "/quando-contratar-assistencia-domiciliar", "destination": "/quando-contratar-assistencia-domiciliar.html" },
-    { "source": "/beneficios-do-cuidado-domiciliar", "destination": "/beneficios-do-cuidado-domiciliar.html" },
-    { "source": "/guia-para-familias-com-idosos", "destination": "/guia-para-familias-com-idosos.html" }
+    {
+      "source": "/sobre",
+      "destination": "/sobre.html"
+    },
+    {
+      "source": "/servicos",
+      "destination": "/servicos.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/contato",
+      "destination": "/contato.html"
+    },
+    {
+      "source": "/cuidado-domiciliar-sao-paulo",
+      "destination": "/cuidado-domiciliar-sao-paulo.html"
+    },
+    {
+      "source": "/home-care-sao-paulo",
+      "destination": "/home-care-sao-paulo.html"
+    },
+    {
+      "source": "/cuidador-idosos-sao-paulo",
+      "destination": "/cuidador-idosos-sao-paulo.html"
+    },
+    {
+      "source": "/como-escolher-home-care",
+      "destination": "/como-escolher-home-care.html"
+    },
+    {
+      "source": "/quanto-custa-cuidador-de-idosos",
+      "destination": "/quanto-custa-cuidador-de-idosos.html"
+    },
+    {
+      "source": "/quando-contratar-assistencia-domiciliar",
+      "destination": "/quando-contratar-assistencia-domiciliar.html"
+    },
+    {
+      "source": "/beneficios-do-cuidado-domiciliar",
+      "destination": "/beneficios-do-cuidado-domiciliar.html"
+    },
+    {
+      "source": "/guia-para-familias-com-idosos",
+      "destination": "/guia-para-familias-com-idosos.html"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
       ]
     }
   ]

@@ -5,6 +5,7 @@
   var form = document.querySelector("[data-whatsapp-form]");
   var year = document.querySelector("[data-year]");
   var decisionCards = document.querySelectorAll("[data-decision-card]");
+  var testimonialCarousel = document.querySelector("[data-testimonial-carousel]");
 
   function setHeaderState() {
     if (!header) return;
@@ -55,6 +56,19 @@
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") closeMenu();
     });
+  }
+
+  if (testimonialCarousel) {
+    var testimonialTrack = testimonialCarousel.querySelector(".testimonial-track");
+    var testimonialSlides = testimonialCarousel.querySelectorAll(".testimonial-card");
+    var testimonialIndex = 0;
+
+    if (testimonialTrack && testimonialSlides.length > 1) {
+      window.setInterval(function () {
+        testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
+        testimonialTrack.style.transform = "translateX(" + testimonialIndex * -100 + "%)";
+      }, 5200);
+    }
   }
 
   if ("IntersectionObserver" in window) {
