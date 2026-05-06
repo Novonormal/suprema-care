@@ -1085,6 +1085,7 @@ p {
 
 .reference-trust {
   background: var(--white);
+  overflow: hidden;
 }
 
 .reference-head {
@@ -1107,20 +1108,23 @@ p {
 }
 
 .reference-columns {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(1.5rem, 3vw, 3rem);
+  gap: clamp(1rem, 1.8vw, 1.5rem);
+  align-items: stretch;
 }
 
 .reference-columns .trust-card {
-  min-height: auto;
+  min-height: 320px;
   margin-top: 0;
-  padding: 0;
+  padding: 32px;
   border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
   overflow: visible;
+  transition: transform 300ms ease, box-shadow 300ms ease;
 }
 
 .reference-columns .trust-card::after {
@@ -1129,37 +1133,49 @@ p {
 
 .reference-columns .trust-card:hover {
   color: inherit;
-  background: transparent;
+  background: var(--white);
   transform: translateY(-8px);
-  box-shadow: none;
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.15);
 }
 
 .reference-columns .trust-card h3 {
-  margin-top: 1.1rem;
-  color: #333;
-  font-size: 1.35rem;
+  max-width: 220px;
+  margin-top: 32px;
+  color: #1e293b;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 800;
 }
 
 .reference-columns .trust-card p,
 .reference-columns .trust-card:hover p,
 .reference-columns .trust-card:hover h3 {
-  color: #5f6970;
+  color: #64748b;
+}
+
+.reference-columns .trust-card p {
+  max-width: none;
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.65;
 }
 
 .reference-columns .trust-icon,
 .reference-columns .trust-card:hover .trust-icon {
-  width: 54px;
-  height: 54px;
-  color: #d87447;
-  background: transparent;
-  border-radius: 0;
+  width: 56px;
+  height: 56px;
+  color: var(--white);
+  background: #f97316;
+  border-radius: 8px;
   box-shadow: none;
 }
 
 .reference-columns .trust-icon svg {
+  width: 31px;
+  height: 31px;
   stroke: currentColor;
   fill: none;
-  stroke-width: 1.45;
+  stroke-width: 1.75;
 }
 
 .reference-testimonials {
@@ -2283,14 +2299,23 @@ p {
 }
 
 @media (max-width: 900px) {
-  .reference-columns,
   .about-reference-grid,
   .testimonials-shell {
     grid-template-columns: 1fr;
   }
 
+  .reference-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .about-reference-features {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .reference-columns {
+    grid-template-columns: 1fr;
   }
 }
 
