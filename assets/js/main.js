@@ -103,7 +103,7 @@
 
     function updateSubmitLabel() {
       if (!submitLabel) return;
-      submitLabel.textContent = isWorkRequest() ? "Enviar por e-mail" : "Enviar questionario";
+      submitLabel.textContent = isWorkRequest() ? "Enviar por e-mail" : "Enviar questionario pelo WhatsApp";
     }
 
     if (serviceSelect) {
@@ -115,14 +115,29 @@
       event.preventDefault();
       var data = new FormData(form);
       var service = data.get("servico") || "";
+      var name = data.get("nome") || "";
+      var phone = data.get("telefone") || "";
+      var bairro = data.get("bairro") || "";
+      var periodo = data.get("periodo") || "";
+      var inicio = data.get("inicio") || "";
+      var local = data.get("local") || "";
+      var apoio = data.get("apoio") || "";
+      var responsavel = data.get("responsavel") || "";
+      var message = data.get("mensagem") || "";
       var parts = [
         isWorkRequest()
           ? "Trabalhe conosco - Suprema Care Brasil"
-          : "Ola, equipe Suprema Care Brasil. Gostaria de um orcamento.",
-        "Nome: " + (data.get("nome") || ""),
-        "Telefone: " + (data.get("telefone") || ""),
+          : "Ola, vim do Google e gostaria de informacoes sobre cuidado domiciliar.",
+        "Nome: " + name,
+        "WhatsApp: " + phone,
+        "Bairro do atendimento: " + bairro,
         "Servico: " + service,
-        "Mensagem: " + (data.get("mensagem") || "")
+        "Periodo desejado: " + periodo,
+        "Quando precisa comecar: " + inicio,
+        "Atendimento em casa ou hospital: " + local,
+        "Apoio principal: " + apoio,
+        "Responsavel pela contratacao: " + responsavel,
+        "Mensagem adicional: " + message
       ];
 
       if (isWorkRequest()) {
