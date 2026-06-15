@@ -1613,6 +1613,10 @@ p {
   background: var(--green);
 }
 
+.lp-page .page-hero .check-list li {
+  color: rgba(255, 255, 255, 0.88);
+}
+
 .map-wrap {
   overflow: hidden;
   border-radius: var(--radius);

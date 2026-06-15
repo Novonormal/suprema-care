@@ -19,6 +19,10 @@
       "destination": "/contato.html"
     },
     {
+      "source": "/lp",
+      "destination": "/lp.html"
+    },
+    {
       "source": "/trabalhe-conosco",
       "destination": "/trabalhe-conosco.html"
     },
