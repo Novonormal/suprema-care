@@ -1617,6 +1617,148 @@ p {
   color: rgba(255, 255, 255, 0.88);
 }
 
+.lp-compact .lp-header .nav-wrap {
+  min-height: 76px;
+}
+
+.lp-conversion-hero {
+  padding: clamp(2.4rem, 5vw, 4.8rem) 0;
+  color: var(--white);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 70% 18%, rgba(0, 175, 31, 0.17), transparent 28%),
+    linear-gradient(135deg, rgba(8, 49, 65, 0.98), rgba(5, 37, 48, 0.96)),
+    url("/assets/img/caregiver-patient.jpg") right center / cover no-repeat;
+}
+
+.lp-conversion-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(320px, 0.72fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.lp-copy h1 {
+  max-width: 690px;
+  color: var(--white);
+  font-size: clamp(2.35rem, 5vw, 4.6rem);
+  line-height: 0.98;
+}
+
+.lp-copy .lead {
+  max-width: 630px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1.08rem, 2vw, 1.35rem);
+}
+
+.lp-proof-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 1.6rem 0 1.2rem;
+}
+
+.lp-proof-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 800;
+}
+
+.lp-form-card {
+  padding: clamp(1.35rem, 2.5vw, 2rem);
+  border-radius: 14px;
+}
+
+.lp-form-card h2 {
+  font-size: clamp(1.85rem, 3vw, 2.65rem);
+}
+
+.lp-form-card .form {
+  gap: 0.72rem;
+}
+
+.lp-form-card .field {
+  gap: 0.22rem;
+}
+
+.lp-form-card .field input,
+.lp-form-card .field textarea,
+.lp-form-card .field select {
+  min-height: 46px;
+  padding: 0.72rem 0.85rem;
+}
+
+.lp-form-card .field textarea {
+  min-height: 82px;
+}
+
+.lp-mini-section {
+  padding: clamp(1.5rem, 4vw, 2.8rem) 0;
+  background: var(--white);
+}
+
+.lp-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.lp-mini-grid article {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 14px 34px rgba(8, 49, 65, 0.08);
+}
+
+.lp-mini-grid strong {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--red);
+}
+
+.lp-mini-grid h3 {
+  margin: 0.9rem 0 0.25rem;
+  font-size: 1.25rem;
+}
+
+.lp-mini-grid p {
+  margin: 0;
+}
+
+.lp-final-cta {
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.lp-compact .check-list li {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 560px) {
+  .lp-conversion-hero {
+    padding: 2rem 0 0;
+  }
+
+  .lp-form-card {
+    padding: 1.25rem;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .lp-copy h1 {
+    font-size: clamp(2.15rem, 10vw, 2.75rem);
+  }
+}
+
 .map-wrap {
   overflow: hidden;
   border-radius: var(--radius);
@@ -1776,6 +1918,7 @@ p {
   .split,
   .article,
   .contact-grid,
+  .lp-conversion-grid,
   .form-grid,
   .section-head {
     grid-template-columns: 1fr;
@@ -1799,6 +1942,7 @@ p {
   .trust-grid,
   .service-grid,
   .blog-grid,
+  .lp-mini-grid,
   .glass-grid,
   .values-grid,
   .steps,
