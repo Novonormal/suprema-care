@@ -103,7 +103,7 @@
 
     function updateSubmitLabel() {
       if (!submitLabel) return;
-      submitLabel.textContent = isWorkRequest() ? "Enviar por e-mail" : "Enviar questionario pelo WhatsApp";
+      submitLabel.textContent = isWorkRequest() ? "Enviar por e-mail" : "Enviar pelo WhatsApp";
     }
 
     if (serviceSelect) {
